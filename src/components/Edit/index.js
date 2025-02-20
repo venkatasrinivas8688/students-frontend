@@ -10,7 +10,7 @@ const Edit = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = `https://students-backend-bb8k.onrender.com/student/${id}`;
+        const apiUrl = `https://students-backend-dn7y.onrender.com/student/${id}`;
         const options = {
           method: "GET",
           headers: { "Content-Type": "application/json" },
