@@ -40,7 +40,7 @@ const Edit = () => {
     }
 
     try {
-      const apiUrl = `https://students-backend-bb8k.onrender.com/edit/${id}`;
+      const apiUrl = `https://students-backend-dn7y.onrender.com/edit/${id}`;
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
