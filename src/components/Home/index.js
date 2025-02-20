@@ -12,8 +12,9 @@ const Home = () => {
         }
         const response = await fetch("https://students-backend-bb8k.onrender.com/students");
         const result = await response.json();
-        setData(result);
         console.log(result);
+        return setData(result);
+        
       } catch (error) {
         console.log(`Message:${error}`);
       }
@@ -30,7 +31,7 @@ const Home = () => {
       };
       const response = await fetch(apiUrl, options);
       if (response.ok) {
-        setDeleted(true);
+        return setDeleted(true);
       }
       return console.log("Error fetching data");
     } catch (err) {
