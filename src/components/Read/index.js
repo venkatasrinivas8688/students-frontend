@@ -16,8 +16,7 @@ const Read = () => {
         const response = await fetch(apiUrl, options);
         if (response.ok) {
           const data = await response.json();
-          console.log(data[0]);
-          setData(data[0]);
+          return setData(data[0]);
         }
         return console.log("Error fetching data");
       } catch (error) {
