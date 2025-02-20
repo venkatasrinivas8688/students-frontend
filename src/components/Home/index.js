@@ -10,7 +10,7 @@ const Home = () => {
         if (deleted) {
           setDeleted(false);
         }
-        const response = await fetch("https://students-backend-dn7y.onrender.com//students");
+        const response = await fetch("https://students-backend-dn7y.onrender.com/students");
         const result = await response.json();
         console.log(result);
         return setData(result);
