@@ -29,7 +29,7 @@ function Create() {
       const data = await response.json();
       console.log(data);
       setValues({ name: "", email: "", age: "", gender: "" });
-      return navigate("/");
+      navigate("/");
     } catch (err) {
       return console.log(`${err}`);
     }
