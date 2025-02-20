@@ -9,7 +9,9 @@ const Read = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/student/${id}`);
+        const response = await axios.get(
+          `https://students-backend-nq8g.onrender.com/student/${id}`
+        );
         setData(response.data[0]); // Directly set response data
         console.log(response.data);
       } catch (error) {
@@ -32,7 +34,6 @@ const Read = () => {
           Back
         </Link>
       </div>
-
       <table className="user-table">
         <thead>
           <tr>

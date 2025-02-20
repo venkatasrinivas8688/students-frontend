@@ -11,7 +11,9 @@ const Edit = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/student/${id}`);
+        const response = await axios.get(
+          `https://students-backend-nq8g.onrender.com/student/${id}`
+        );
 
         setData(response.data[0]);
         console.log(response.data[0]);
@@ -33,7 +35,7 @@ const Edit = () => {
     }
 
     try {
-      const apiurl = `http://localhost:5000/edit/${id}`;
+      const apiurl = `https://students-backend-nq8g.onrender.com/edit/${id}`;
       const response = await axios.post(apiurl, student);
       console.log(response.data);
       setData({ name: "", email: "", age: "", gender: "" });

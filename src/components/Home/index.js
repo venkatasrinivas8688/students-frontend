@@ -11,7 +11,9 @@ const Home = () => {
         if (deleted) {
           setDeleted(false);
         }
-        const response = await fetch("http://localhost:5000/students");
+        const response = await fetch(
+          "https://students-backend-nq8g.onrender.com/students"
+        );
         const result = await response.json();
         setData(result);
         console.log(result);
@@ -24,7 +26,9 @@ const Home = () => {
 
   async function handleDelete(id) {
     try {
-      await axios.delete(`http://localhost:5000/delete/${id}`);
+      await axios.delete(
+        `https://students-backend-nq8g.onrender.com/delete/${id}`
+      );
       setDeleted(true);
     } catch (err) {
       console.log(`error:${err}`);

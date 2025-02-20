@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./index.css";
 
@@ -20,22 +19,19 @@ function Create() {
     console.log(student);
 
     try {
-      const apiurl = "http://localhost:5000/add_user";
-      const response = await axios.post(apiurl, student);
-      console.log(response.data);
+      const apiUrl = "https://students-backend-nq8g.onrender.com/add_user";
+      const options = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(student),
+      };
+      const response = await fetch(apiUrl, options);
+      const data = await response.json();
+      console.log(data);
       setValues({ name: "", email: "", age: "", gender: "" });
       navigate("/");
     } catch (err) {
-      if (err.response) {
-        return console.log(
-          `error:${err.response.data.message || "Something went wrong"}`
-        );
-      }
-      if (err.request) {
-        return console.log(`no response from server`);
-      } else {
-        return console.log(`${err.message}`);
-      }
+      return console.log(`${err}`);
     }
   }
 
