@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./index.css";
@@ -9,11 +8,18 @@ const Read = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://students-backend-nq8g.onrender.com/student/${id}`
-        );
-        setData(response.data[0]); // Directly set response data
-        console.log(response.data);
+        const apiUrl = `http://localhost:5000/student/${id}`;
+        const options = {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        };
+        const response = await fetch(apiUrl, options);
+        if (response.ok) {
+          const data = await response.json();
+          console.log(data[0]);
+          setData(data[0]);
+        }
+        return console.log("Error fetching data");
       } catch (error) {
         console.error("Error fetching data:", error);
       }

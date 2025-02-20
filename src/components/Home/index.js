@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -11,9 +10,7 @@ const Home = () => {
         if (deleted) {
           setDeleted(false);
         }
-        const response = await fetch(
-          "https://students-backend-nq8g.onrender.com/students"
-        );
+        const response = await fetch("http://localhost:5000/students");
         const result = await response.json();
         setData(result);
         console.log(result);
@@ -26,10 +23,16 @@ const Home = () => {
 
   async function handleDelete(id) {
     try {
-      await axios.delete(
-        `https://students-backend-nq8g.onrender.com/delete/${id}`
-      );
-      setDeleted(true);
+      const apiUrl = `http://localhost:5000/delete/${id}`;
+      const options = {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      };
+      const response = await fetch(apiUrl, options);
+      if (response.ok) {
+        setDeleted(true);
+      }
+      return console.log("Error fetching data");
     } catch (err) {
       console.log(`error:${err}`);
     }

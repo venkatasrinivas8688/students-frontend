@@ -19,7 +19,7 @@ function Create() {
     console.log(student);
 
     try {
-      const apiUrl = "https://students-backend-nq8g.onrender.com/add_user";
+      const apiUrl = "http://localhost:5000/add_user";
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },

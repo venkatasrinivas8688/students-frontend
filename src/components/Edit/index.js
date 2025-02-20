@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./index.css";
@@ -7,16 +6,22 @@ const Edit = () => {
   const { id } = useParams();
   const [student, setData] = useState([null]);
   const navigate = useNavigate();
-  console.log(id);
+  //console.log(id);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `https://students-backend-nq8g.onrender.com/student/${id}`
-        );
-
-        setData(response.data[0]);
-        console.log(response.data[0]);
+        const apiUrl = `http://localhost:5000/student/${id}`;
+        const options = {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        };
+        const response = await fetch(apiUrl, options);
+        if (response.ok) {
+          const data = await response.json();
+          setData(data[0]);
+          console.log(data[0]);
+        }
+        return console.log("Error fetching data");
       } catch (error) {
         console.log(`Message:${error}`);
       }
@@ -35,11 +40,20 @@ const Edit = () => {
     }
 
     try {
-      const apiurl = `https://students-backend-nq8g.onrender.com/edit/${id}`;
-      const response = await axios.post(apiurl, student);
-      console.log(response.data);
-      setData({ name: "", email: "", age: "", gender: "" });
-      navigate("/");
+      const apiUrl = `http://localhost:5000/edit/${id}`;
+      const options = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(student),
+      };
+      const response = await fetch(apiUrl, options);
+      if (response.ok) {
+        const data = await response.json();
+        setData({ name: "", email: "", age: "", gender: "" });
+        navigate("/");
+        console.log(data);
+      }
+      return console.log("Error fetching data");
     } catch (err) {
       console.log(`Error:${err}`);
     }
