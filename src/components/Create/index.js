@@ -19,7 +19,7 @@ function Create() {
     console.log(student);
 
     try {
-      const apiUrl = "https://students-backend-bb8k.onrender.com/add_user";
+      const apiUrl = "https://students-backend-dn7y.onrender.com/add_user";
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
