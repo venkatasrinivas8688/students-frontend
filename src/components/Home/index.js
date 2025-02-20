@@ -10,7 +10,7 @@ const Home = () => {
         if (deleted) {
           setDeleted(false);
         }
-        const response = await fetch("http://localhost:5000/students");
+        const response = await fetch("https://students-backend-bb8k.onrender.com/students");
         const result = await response.json();
         setData(result);
         console.log(result);
@@ -23,7 +23,7 @@ const Home = () => {
 
   async function handleDelete(id) {
     try {
-      const apiUrl = `http://localhost:5000/delete/${id}`;
+      const apiUrl = `https://students-backend-bb8k.onrender.com/delete/${id}`;
       const options = {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
