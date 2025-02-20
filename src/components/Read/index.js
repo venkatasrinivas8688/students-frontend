@@ -8,7 +8,7 @@ const Read = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = `http://localhost:5000/student/${id}`;
+        const apiUrl = `https://students-backend-bb8k.onrender.com/student/${id}`;
         const options = {
           method: "GET",
           headers: { "Content-Type": "application/json" },
