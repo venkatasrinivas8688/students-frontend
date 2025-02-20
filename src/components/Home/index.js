@@ -24,7 +24,7 @@ const Home = () => {
 
   async function handleDelete(id) {
     try {
-      const apiUrl = `https://students-backend-bb8k.onrender.com/delete/${id}`;
+      const apiUrl = `https://students-backend-dn7y.onrender.com/delete/${id}`;
       const options = {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
