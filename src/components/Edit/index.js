@@ -10,7 +10,7 @@ const Edit = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const apiUrl = `http://localhost:5000/student/${id}`;
+        const apiUrl = `https://students-backend-bb8k.onrender.com/student/${id}`;
         const options = {
           method: "GET",
           headers: { "Content-Type": "application/json" },
@@ -40,7 +40,7 @@ const Edit = () => {
     }
 
     try {
-      const apiUrl = `http://localhost:5000/edit/${id}`;
+      const apiUrl = `https://students-backend-bb8k.onrender.com/edit/${id}`;
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
