@@ -18,8 +18,8 @@ const Edit = () => {
         const response = await fetch(apiUrl, options);
         if (response.ok) {
           const data = await response.json();
-          setData(data[0]);
           console.log(data[0]);
+          return setData(data[0]);
         }
         return console.log("Error fetching data");
       } catch (error) {
@@ -50,8 +50,8 @@ const Edit = () => {
       if (response.ok) {
         const data = await response.json();
         setData({ name: "", email: "", age: "", gender: "" });
-        navigate("/");
         console.log(data);
+        return navigate("/");  
       }
       return console.log("Error fetching data");
     } catch (err) {
