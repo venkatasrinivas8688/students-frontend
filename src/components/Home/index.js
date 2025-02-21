@@ -41,13 +41,6 @@ const Home = () => {
   return (
     <div className="container-fluid bg-primary vh-100 vw-100 p-4">
       <h1 className="text-white text-center">Students</h1>
-
-      <div className="d-flex justify-content-end my-3">
-        <Link className="btn btn-success" to="/create">
-          Add Student
-        </Link>
-      </div>
-
       <div className="table-responsive">
         <table className="table table-striped table-bordered table-hover bg-white">
           <thead className="table-dark">
@@ -101,6 +94,11 @@ const Home = () => {
             )}
           </tbody>
         </table>
+        <div className="d-flex justify-content-center my-3">
+          <Link className="btn btn-success" to="/create">
+            Add Student
+          </Link>
+        </div>
       </div>
     </div>
   );
